@@ -1,0 +1,71 @@
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .title-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .title {
+    font-size: 24px;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+}
+
+.data-container {
+  display: grid;
+  grid-template-areas:
+    "pieChart barChart"
+    "lineChart lineChart"
+    "dataTable dataTable";
+  gap: 16px;
+}
+
+.chart {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  border-radius: 5px;
+}
+
+app-pie-chart-gender {
+  grid-area: pieChart;
+}
+
+app-bar-chart-engine {
+  grid-area: barChart;
+}
+
+app-line-chart-seats {
+  grid-area: lineChart;
+}
+
+app-users-data-table {
+  grid-area: dataTable;
+}
+
+@media (max-width: 1200px) {
+  :host {
+    align-items: center;
+  }
+  header {
+    width: 95%;
+  }
+  .data-container {
+    grid-template-areas:
+      "pieChart"
+      "barChart"
+      "lineChart"
+      "dataTable";
+  }
+}

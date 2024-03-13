@@ -1,0 +1,168 @@
+$formBgColor: rgb(255 255 255 / 40%);
+$mobileBreapoint: 767px;
+
+:host {
+  height: 100%;
+  display: block;
+}
+
+video {
+  position: absolute;
+  z-index: -1;
+  width: auto;
+  height: 100%;
+}
+
+@media (max-width: $mobileBreapoint) {
+  video {
+    display: none;
+  }
+  .form-container {
+    background: url("/assets/car-poster.avif");
+    background-size: cover;
+  }
+}
+.form-container {
+  height: 90vh;
+  form {
+    display: grid;
+    grid-template-areas: "inputs submit";
+    grid-template-columns: repeat(2, 1fr);
+    height: 100%;
+    align-items: center;
+    padding: 0 20px;
+
+    @media (max-width: 1200px) {
+      grid-template-areas:
+        "inputs"
+        "submit";
+      grid-template-columns: 1fr;
+    }
+
+    .inputs-container {
+      display: grid;
+      gap: 16px;
+      grid-area: inputs;
+
+      .input-name {
+        grid-area: input-name;
+      }
+      .input-gender {
+        grid-area: input-gender;
+      }
+      .input-email {
+        grid-area: input-email;
+      }
+      .input-birthDate {
+        grid-area: input-birthDate;
+      }
+      .input-address {
+        grid-area: input-address;
+      }
+      .input-city {
+        grid-area: input-city;
+      }
+      .input-country {
+        grid-area: input-country;
+      }
+      .input-hobbies {
+        grid-area: input-hobbies;
+      }
+      .input-color {
+        grid-area: input-color;
+      }
+      .input-seats {
+        grid-area: input-seats;
+      }
+      .input-motorType {
+        grid-area: input-motorType;
+      }
+
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        "input-name input-email input-gender"
+        "input-birthDate input-address input-city"
+        "input-country input-hobbies input-color"
+        "input-seats input-motorType .";
+
+      @media (max-width: $mobileBreapoint) {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "input-name"
+          "input-gender"
+          "input-email"
+          "input-birthDate"
+          "input-address"
+          "input-city"
+          "input-country"
+          "input-hobbies"
+          "input-color"
+          "input-seats"
+          "input-motorType";
+      }
+    }
+
+    .submit-btn-container {
+      grid-area: submit;
+    }
+  }
+
+  .submit-btn-container {
+    display: flex;
+    justify-content: center;
+
+    @media (max-width: $mobileBreapoint) {
+      margin-top: 20px;
+    }
+  }
+
+  @media (max-width: $mobileBreapoint) {
+    &[staticHeight="true"] {
+      height: 100%;
+    }
+    height: auto;
+    padding: 30px 0px;
+  }
+}
+
+.inputs-container {
+  padding: 20px;
+  background-color: $formBgColor;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.inputs-sub-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.input-color {
+  width: 100px;
+  height: 33px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.submit-btn {
+  width: 160px;
+  height: 60px;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.form-completed {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: $formBgColor;
+  width: 100%;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+}

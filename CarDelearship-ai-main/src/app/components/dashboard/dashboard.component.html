@@ -1,0 +1,21 @@
+<header>
+  <button
+    mat-fab
+    color="primary"
+    matTooltip="Home"
+    [matTooltipPosition]="'right'"
+    (click)="onNavigateToHome()"
+  >
+    <mat-icon>home</mat-icon>
+  </button>
+  <div class="title-container">
+    <div class="title">Dashboards</div>
+    {{ visitorsFilledPrecentage$ | async }}% Users are filling the form
+  </div>
+</header>
+<div class="data-container">
+  <app-pie-chart-gender class="chart"></app-pie-chart-gender>
+  <app-bar-chart-engine class="chart"></app-bar-chart-engine>
+  <app-line-chart-seats class="chart"></app-line-chart-seats>
+  <app-users-data-table></app-users-data-table>
+</div>

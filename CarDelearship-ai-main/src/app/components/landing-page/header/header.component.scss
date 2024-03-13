@@ -1,0 +1,21 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  background-color: #e5f1ff;
+}
+
+.logo {
+  width: 50px;
+}
+
+.header-text {
+  margin: auto;
+  font-size: 24px;
+  letter-spacing: 1px;
+  font-weight: 500;
+}
+
+.nav-container {
+  margin: auto 0;
+}

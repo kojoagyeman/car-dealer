@@ -1,0 +1,80 @@
+[
+  {
+    "name": "John Doe",
+    "gender": "male",
+    "email": "john.doe@example.com",
+    "birthDate": "1990-05-15T22:00:00.000Z",
+    "address": "123 Main Street",
+    "city": "Anytown",
+    "country": "USA",
+    "hobbies": ["reading", "gardening"],
+    "color": "#3366cc",
+    "seats": 4,
+    "motorType": "electric"
+  },
+  {
+    "name": "Jane Smith",
+    "gender": "female",
+    "email": "jane.smith@example.com",
+    "birthDate": "1985-08-20T22:00:00.000Z",
+    "address": "456 Oak Avenue",
+    "city": "Smallville",
+    "country": "Canada",
+    "hobbies": ["painting", "traveling"],
+    "color": "#ff9900",
+    "seats": 1,
+    "motorType": "electric"
+  },
+  {
+    "name": "Alice Johnson",
+    "gender": "female",
+    "email": "alice.johnson@example.com",
+    "birthDate": "1992-03-10T22:00:00.000Z",
+    "address": "789 Pine Lane",
+    "city": "Villagetown",
+    "country": "UK",
+    "hobbies": ["photography", "cycling"],
+    "color": "#990000",
+    "seats": 3,
+    "motorType": "electric"
+  },
+  {
+    "name": "Carlos Rodriguez",
+    "gender": "male",
+    "email": "carlos.rodriguez@example.com",
+    "birthDate": "1988-12-05T22:00:00.000Z",
+    "address": "234 Maple Street",
+    "city": "Cityville",
+    "country": "Mexico",
+    "hobbies": ["playing guitar", "cooking"],
+    "color": "#663300",
+    "seats": 2,
+    "motorType": "fuel"
+  },
+  {
+    "name": "Emily Turner",
+    "gender": "female",
+    "email": "emily.turner@example.com",
+    "birthDate": "1995-06-25T22:00:00.000Z",
+    "address": "567 Elm Road",
+    "city": "Suburbia",
+    "country": "Australia",
+    "hobbies": ["dancing", "hiking"],
+    "color": "#cc3366",
+    "seats": 4,
+    "motorType": "fuel"
+  },
+  {
+    "name": "Mohammed Ali",
+    "gender": "male",
+    "email": "mohammed.ali@example.com",
+    "birthDate": "1980-02-15T22:00:00.000Z",
+    "address": "890 Cedar Court",
+    "city": "Metropolis",
+    "country": "UAE",
+    "hobbies": ["boxing", "reading"],
+    "color": "#006600",
+    "seats": 1,
+    "motorType": "fuel"
+  }
+]

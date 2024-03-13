@@ -1,0 +1,157 @@
+<app-header></app-header>
+<video poster="assets/volvo-poster.png" autoplay muted loop>
+  <source src="assets/volvo.webm" type="video/webm" />
+</video>
+<section class="form-container" [attr.staticHeight]="formSubmitted$ | async">
+  <ng-container
+    [ngTemplateOutlet]="!(formSubmitted$ | async) ? formRef : formCompletedRef"
+  ></ng-container>
+</section>
+<app-footer></app-footer>
+
+<!-- TEMPLATES -->
+<ng-template #formRef>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="inputs-container">
+      <mat-form-field class="input-name">
+        <input matInput placeholder="Full Name" formControlName="name" />
+      </mat-form-field>
+
+      <mat-radio-group formControlName="gender" class="input-gender">
+        <mat-radio-button
+          value="male"
+          matTooltip="Gender"
+          [matTooltipPosition]="'above'"
+          >Male</mat-radio-button
+        >
+        <mat-radio-button
+          value="female"
+          matTooltip="Gender"
+          [matTooltipPosition]="'above'"
+          >Female</mat-radio-button
+        >
+      </mat-radio-group>
+
+      <mat-form-field class="input-email">
+        <input
+          matInput
+          type="email"
+          placeholder="Email"
+          formControlName="email"
+        />
+      </mat-form-field>
+
+      <mat-form-field class="input-date">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          placeholder="Birth Date"
+          formControlName="birthDate"
+        />
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input-address">
+        <input matInput placeholder="Address" formControlName="address" />
+      </mat-form-field>
+      <mat-form-field class="input-city">
+        <input matInput placeholder="City" formControlName="city" />
+      </mat-form-field>
+      <mat-form-field class="input-country">
+        <input matInput placeholder="Country" formControlName="country" />
+      </mat-form-field>
+
+      <mat-form-field class="input-hobbies" appearance="fill">
+        <mat-label>Hobbies</mat-label>
+        <mat-chip-grid
+          #chipGrid
+          aria-label="Enter Hobby"
+          formControlName="hobbies"
+        >
+          <mat-chip-row
+            *ngFor="let hobby of hobbies"
+            (removed)="removeHobby(hobby)"
+            [editable]="true"
+            (edited)="editHobby(hobby, $event)"
+            [aria-description]="'press enter to edit ' + hobby.name"
+          >
+            {{ hobby.name }}
+            <button matChipRemove [attr.aria-label]="'remove ' + hobby.name">
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </mat-chip-row>
+          <input
+            placeholder="New hobby..."
+            [matChipInputFor]="chipGrid"
+            [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+            [matChipInputAddOnBlur]="true"
+            (matChipInputTokenEnd)="addHobby($event)"
+          />
+        </mat-chip-grid>
+      </mat-form-field>
+
+      <input
+        class="input-color"
+        type="color"
+        formControlName="color"
+        matTooltip="Choose a color"
+        [matTooltipPosition]="'above'"
+      />
+
+      <mat-slider
+        min="2"
+        max="7"
+        step="1"
+        showTickMarks
+        discrete
+        matTooltip="Seats Number"
+        [matTooltipPosition]="'above'"
+      >
+        <input matSliderThumb formControlName="seats" />
+      </mat-slider>
+
+      <mat-radio-group formControlName="motorType">
+        <mat-radio-button
+          value="electric"
+          matTooltip="Engine Type"
+          [matTooltipPosition]="'above'"
+          >Electric</mat-radio-button
+        >
+        <mat-radio-button
+          value="fuel"
+          matTooltip="Engine Type"
+          [matTooltipPosition]="'above'"
+          >Fuel</mat-radio-button
+        >
+      </mat-radio-group>
+    </div>
+    <div class="submit-btn-container">
+      <button
+        class="submit-btn"
+        mat-raised-button
+        color="primary"
+        type="submit"
+      >
+        Submit
+      </button>
+    </div>
+  </form>
+</ng-template>
+<ng-template #formCompletedRef>
+  <div class="form-completed">
+    <div>
+      <h1>Thank You!</h1>
+      <p>
+        Your form has been successfully submitted. We appreciate your input.
+      </p>
+      <p>
+        Our AI will now analyze your preferences and find the perfect matched
+        car for you.
+      </p>
+      <button mat-raised-button color="primary" (click)="onFillAnotherForm()">
+        Fill Another Form
+      </button>
+    </div>
+  </div>
+</ng-template>
